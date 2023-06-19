@@ -10,28 +10,32 @@ class Solution{
     public:
     //Function to find the minimum number of platforms required at the
     //railway station such that no train waits.
-    static bool cmp(pair<int,char> a, pair<int,char> b){
-         if(a.first == b.first) return a.second < b.second;
-        return a.first < b.first;
-    }
-    int findPlatform(int av[], int dp[], int n)
+    
+    int findPlatform(int arr[], int dep[], int n)
     {
-    	vector<pair<int,char>>a;
-    	for(int i=0;i<n;i++){
-    	    a.push_back({av[i],'a'});
-    	    a.push_back({dp[i],'d'});
-    	}
-    	sort(a.begin(),a.end(),cmp);
-    	int res=1;
-    	int c=0;
-    	for(auto it:a){
-    	    if(it.second=='a')
-    	        c++;
-    	    else
-    	        c--;
-    	   res=max(c,res);
-    	}
-    	return res;
+    	sort(arr,arr+n);
+        sort(dep,dep+n);
+        int plt_needed=1,min_plat=1;
+        int i=1,j=0;
+        int mx=1;
+        while(i<n && j<n)
+        
+        {
+            if(arr[i]<=dep[j])
+            {plt_needed++;
+            i++;
+            }
+            else if(arr[i]>dep[j])
+            {plt_needed--;
+            j++;
+            }
+            mx=max(plt_needed,mx);
+        }
+        if(mx>min_plat)
+        {min_plat=mx;
+            
+        }
+        return mx;
     }
 };
 
