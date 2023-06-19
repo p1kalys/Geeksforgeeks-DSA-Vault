@@ -15,7 +15,7 @@ class Solution{
     {
     	sort(arr,arr+n);
         sort(dep,dep+n);
-        int plt_needed=1,min_plat=1;
+        int plt_needed=1;
         int i=1,j=0;
         int mx=1;
         while(i<n && j<n)
@@ -30,10 +30,6 @@ class Solution{
             j++;
             }
             mx=max(plt_needed,mx);
-        }
-        if(mx>min_plat)
-        {min_plat=mx;
-            
         }
         return mx;
     }
