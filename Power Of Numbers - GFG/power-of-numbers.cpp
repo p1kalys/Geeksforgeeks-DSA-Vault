@@ -7,28 +7,26 @@ using namespace std;
 class Solution{
     public:
     //You need to complete this fucntion
-    long long fexp(long long x,long long y)
-    {
-        if(x==0)return 0;
-        if(y==0)return 1;
-       long long ans;
-       if(y%2==0)
-       {
-           // 3^4->(3*3)^2->3^2 * 3^2
-           ans=fexp(x,y/2);
-           ans=(ans%mod*ans%mod)%mod;
-       }
-       else{
-        //   y is odd so x^y-> x*(x^(y-1))
-        ans=((x)%mod*fexp(x,y-1)%mod)%mod;
-       }
-       return ((ans+mod)%mod);
-        
-    }
+    
     long long power(int N,int R)
     {
        //Your code here
-       return fexp(N,R);
+       int MOD=1e9 +7;
+       if (N==0){
+            return 0;
+       }
+       if (R==0){
+            return 1;
+       }
+       if (R%2==0){
+            long long int ans=power(N,R/2);
+            return (ans%MOD * ans%MOD)%MOD;
+       }
+       else{
+            long long int ans=power(N,(R-1)/2);
+            return (ans%MOD * ans%MOD * N%MOD)%MOD;
+       }
+        
     }
 
 };
