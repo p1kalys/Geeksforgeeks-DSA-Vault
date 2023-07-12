@@ -5,16 +5,15 @@ class Solution:
     def power(self,N,R):
         #Your code here
         mod=10**9 +7
-        ob=Solution()
         if N==0:
             return 0
         if R==0:
             return 1
         if R%2==0:
-            ans=ob.power(N,R//2)
+            ans=self.power(N,R//2)
             return (ans%mod * ans%mod) %mod
         elif R%2 != 0:
-            ans=ob.power(N,(R-1)//2)
+            ans=self.power(N,(R-1)//2)
             return (ans%mod * ans%mod * N%mod)%mod
 
 
