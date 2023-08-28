@@ -70,7 +70,7 @@ Node *removeDuplicates(Node *head)
 {
  // your code goes here
  Node* temp=head;
- Node* dummy=temp;
+ 
  while(temp->next!=NULL){
      int d1=temp->data;
      if(d1==temp->next->data){
@@ -80,5 +80,5 @@ Node *removeDuplicates(Node *head)
          temp=temp->next;
      }
  }
- return dummy;
+ return head;
 }
