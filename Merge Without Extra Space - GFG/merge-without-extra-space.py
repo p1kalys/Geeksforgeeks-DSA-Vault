@@ -7,7 +7,7 @@ class Solution:
         #code here
         left=n-1
         right=0
-        while left>=0 and right<m:
+        while (left>=0 and right<m):
             if arr1[left]>arr2[right]:
                 arr1[left],arr2[right]=arr2[right],arr1[left]
                 left-=1
@@ -17,6 +17,7 @@ class Solution:
         arr1.sort()
         arr2.sort()
         
+    
 
 
 
