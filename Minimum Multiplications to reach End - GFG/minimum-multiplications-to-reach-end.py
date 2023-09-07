@@ -3,7 +3,6 @@ from collections import deque
 from typing import List
 
 class Solution:
-    
     def minimumMultiplications(self, multipliers : List[int], start_value : int, target_value : int) -> int:
         # code here
         max_mod_value = 100000  # Maximum mod value
